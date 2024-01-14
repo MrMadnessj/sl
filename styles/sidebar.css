@@ -1,0 +1,71 @@
+:root{
+    --header-height: 4.5rem;
+}
+
+.sidebar{
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    /* height: calc(100% - var(--header-height)); */
+    width: 20rem;
+    z-index: 999;
+    background-color: rgba(250, 235, 215, 0.295);
+    backdrop-filter: blur(10px);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateX(-100%); /* Initial position off the screen */
+    transition: transform 0.5s;
+    /* visibility: hidden; Initially hide the sidebar */
+    /* opacity: 0; Initially set opacity to 0 */
+    /* transition: visibility 1s, opacity 0.5s; Add transition */
+    /* display: none; */
+    /* width: clamp(100%, 30%, 250px); */
+}
+
+.sidebar::after{
+    transition: transform 0.5s;
+    /* transition: visibility 1s, opacity 0.5s, width 1s; */
+}
+
+.stat-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.svgs{
+    fill: white;
+    height: 2rem;
+    width: auto;
+    align-self: center;
+    /* background-color: wheat; */
+}
+
+.black{
+    fill: black;
+}
+
+
+/* responsive width */
+@media(max-width: 600px){
+    .sidebar{
+        width: 100%;
+    }
+}
+
+@media(width >= 2000px){
+    *{
+        font-size: 120%;
+
+    }
+}
+
+@media(width <= 1000px){
+    *{
+        font-size: 80%;
+
+    }
+}
+
