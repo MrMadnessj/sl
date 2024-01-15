@@ -9,6 +9,7 @@
     /* height: calc(100% - var(--header-height)); */
     width: 20rem;
     z-index: 999;
+    max-height: calc(100% - var(--header-height));
     background-color: rgba(250, 235, 215, 0.295);
     backdrop-filter: blur(10px);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);

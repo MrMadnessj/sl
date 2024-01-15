@@ -1,0 +1,9 @@
+.body{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 1rem;
+    border: 5px solid rgb(36, 228, 36);
+    overflow: auto;
+    /* background-image: linear-gradient(to right, red, yellow); */
+}

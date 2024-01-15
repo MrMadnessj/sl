@@ -1,0 +1,110 @@
+/* overlay */
+.overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    transition: 200ms ease-in-out;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.541);
+    pointer-events: none;
+}
+
+.overlay.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* form */
+.popup-form, .popup-edit-form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    z-index: 10;
+    border: 1px solid black;
+    transition: 200ms ease-in-out;
+    width: 500px;
+    max-width: 80%;
+    background-color: rgb(255, 255, 255);
+    padding: 1rem 1rem 1rem 1rem;
+    margin: auto;
+    border-radius: 0.5rem;
+}
+
+.popup-form.active, .popup-edit-form.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.form-header{
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+    padding: 0 0 0.5rem 0;
+    font-family: borel;
+}
+
+.form-header > button{
+    border: none;
+    background: none;
+    transform: scale(2);
+    cursor: pointer;
+}
+
+.form-header > h2{
+    padding-top: 1rem;
+}
+
+.form-body > form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-body > form > input,
+.pages > div > input{
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid black;
+    font-size: 1.1rem;
+    font-family: signika;
+} 
+
+.form-body > form > label,
+.pages > div > label{
+    font-family: borel;
+    user-select: none;
+}
+
+.pages{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-body >  form > button{
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    background-image: linear-gradient(to bottom, rgba(128, 0, 128, 0.726), rgba(255, 0, 0, 0.692));
+    font-family: borel;
+    padding-top: 0.9rem;
+    color: white;
+    font-weight: bold;
+}
+
+.form-body > form > button:hover{
+    cursor: pointer;
+    background-image: linear-gradient(to bottom, rgb(128, 0, 128), rgba(255, 0, 0, 0.986));
+} 
+
+@media(width <= 600px){
+    .pages{
+        flex-direction: column;
+    }
+    .pages > div{
+        display: flex;
+        flex-direction: column;
+    }
+}

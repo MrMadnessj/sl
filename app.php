@@ -1,4 +1,16 @@
 <?php
+    session_start();
+    // unset($_SESSION['username']);
+    // unset($_SESSION['user_id']);\
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    
+    
+    if( !isset($_SESSION['username']) || !isset($_SESSION['user_id'])){
+        header('Location: /projects/sl/pages/loginlogout/login.php');
+        // echo $_SESSION['username']." --- ".$_SESSION['user_id'];
+        return;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -6,12 +18,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/sidebar.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="scripts/dom.js"></script>
-    <title>Document</title>
+    <?php require_once 'head.php'; 
+        require('pages/layout/book.php');
+        require('pages/layout/forms.php');
+    ?>
+    <title>ScribeLog</title>
 </head>
 <body>
     <header class="header">
@@ -51,7 +62,7 @@
             <div class="signup-data">
                 <h2>Signup</h2>
                 <h2>Data</h2>
-                <button>Sign Up</button>
+                <a href="/projects/sl/pages/loginlogout/logout.php"><button>Log Out</button></a>
                 <button>Data</button>
             </div>
             <div class="quotes">
@@ -67,5 +78,26 @@
             </div>
         </div>
     </div>
+    <div class="body">
+        <button class='add-btn' onclick='openAddForm()'>+</button>
+        <?php echo $book?>
+    </div>
+    <?php echo $addForm?>
+    <div class="overlay"></div>
+    <script>
+        var form = $('.popup-form');
+        var overlay = $('.overlay');
+        function openAddForm(){
+            console.log('im inside open Add form');
+            form.addClass('active');
+            overlay.addClass('active');
+        }
+
+        function closeAddForm(){
+            form.removeClass('active');
+            overlay.removeClass('active');
+        }    
+    </script>
 </body>
+http://localhost/projects/sl/app.php
 </html>
