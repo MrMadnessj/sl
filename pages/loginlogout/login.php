@@ -1,6 +1,7 @@
 <?php 
     require_once '../pdo.php';
     require_once '../util.php';
+    require_once '../layout/forms.php';
     
     session_start();
     // echo $_SESSION['username']." --- ".$_SESSION['user_id'];
@@ -24,7 +25,7 @@
     <?php require_once '../layout/header.php'; ?>
     <?php require_once '../layout/body.php'; ?>
     <?php flashMessage() ?>
-    <form action="login_process.php" method="post" onsubmit=" return doValidate();" >
+    <!-- <form action="login_process.php" method="post" onsubmit=" return doValidate();" >
         <label for="">
             Email: 
             <input type="text" name="email" id="email">
@@ -34,8 +35,9 @@
             <input type="text" name="password" id="password">
         </label>
         <input type="submit" value="Log In">
-        <!-- <input type="submit" value="cancel" name="cancel"> -->
-    </form>
+        <input type="submit" value="cancel" name="cancel">
+    </form> -->
+    
     <p class="error"></p>
     <a href="home.php"></a>
 </body>

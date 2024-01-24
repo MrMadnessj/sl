@@ -14,9 +14,23 @@
         }
 
         if($_POST['totalpages'] < $_POST['pagesread']){
-            return "Pages read can't be greater than total pages.";
+            return "Pages read can't be greater than total pages."; 
+
         }
+        return true;
     }
+
+    function loadData($pdo, $userid){
+        $stmt = $pdo->prepare('SELECT * FROM books WHERE user_id = :uid ORDER BY title ASC');
+        $stmt->execute(array(
+            ':uid' => $userid
+        ));
+        $books = array();
+        while( $row = $stmt->fetch(PDO::FETCH_ASSOC) ){
+            $books[] = $row;
+        }
+        return $books;
+    }   
 
     
 

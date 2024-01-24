@@ -31,4 +31,17 @@
     </div>
     </div>
     ';
+
+    $loginForm = '<form action="login_process.php" method="post" onsubmit=" return doValidate();" >
+    <label for="">
+        Email: 
+        <input type="text" name="email" id="email">
+    </label>
+    <label for="">
+        Password: 
+        <input type="text" name="password" id="password">
+    </label>
+    <input type="submit" value="Log In">
+    <!-- <input type="submit" value="cancel" name="cancel"> -->
+    </form>';
 ?>
